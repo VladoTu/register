@@ -1,5 +1,8 @@
 package register;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * register.Person.
  */
@@ -61,8 +64,15 @@ public class Person {
      * @param phoneNumber phone number to validate
      * @return <code>true</code> if phone number is valid, <code>false</code> otherwise
      */
-    private boolean isValidPhoneNumber(String phoneNumber) {        
-        return false;
+    private boolean isValidPhoneNumber(String phoneNumber) {
+
+        Pattern pattern = Pattern.compile("[0-9]+");
+        Matcher matcher = pattern.matcher(phoneNumber);
+        if (!matcher.matches()) {
+            System.out.println("Telefonne cislo nesplna pravida.");
+            return false;
+        }
+        return true;
     }
     
     /**

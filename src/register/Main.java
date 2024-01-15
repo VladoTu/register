@@ -8,7 +8,9 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Register register = new Register(20);
 
-        register.addPerson(new Person("Janko Hrasko", "0900123456"));
+        register.addPerson(new Person("Janko Hrasko", "991"));
+        register.addPerson(new Person("Jozo Hra", "090012345"));
+        register.addPerson(new Person("Jana Hraskova", "0900976456"));
 
         ConsoleUI ui = new ConsoleUI(register);
         ui.run();

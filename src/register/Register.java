@@ -51,8 +51,12 @@ public class Register {
     public void addPerson(Person person) {
         persons[count] = person;
         count++;
-    }       
-    
+    }
+    public void updatePerson(Person person, int index) {
+        persons[index] = person;
+
+    }
+
     //TODO: Implement the method findPersonByName
     /**
      * Returns the person with specified name in this register or <code>null</code>,
@@ -72,7 +76,15 @@ public class Register {
      * @return person with specified phone number
      */
     public Person findPersonByPhoneNumber(String phoneNumber) {
-        throw new UnsupportedOperationException("Method findPersonByPhoneNumber not yet implemented");
+        for (int i = 0; i < count; i++) {
+
+          if (persons[i].getPhoneNumber().equals(phoneNumber)){
+              return persons[i];
+          }
+
+
+        }
+        return null;
     }
     
     //TODO: Implement the method removePerson
@@ -80,7 +92,8 @@ public class Register {
      * Removes the specified person from the register.
      * @param person person to remove
      */
-    public void removePerson(Person person) {
-        throw new UnsupportedOperationException("Method removePerson not yet implemented");
+    public void removePerson(int index) {
+        count--;
+        persons[index] = persons[count];
     }
 }

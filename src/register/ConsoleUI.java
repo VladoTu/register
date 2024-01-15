@@ -81,7 +81,10 @@ public class ConsoleUI {
     
     //TODO: Implement the method printRegister
     private void printRegister() {
-        throw new UnsupportedOperationException("Method printRegister not yet implemented");
+        for (int i = 0; i < register.getCount() ; i++) {
+            System.out.println(i+1 + "." + register.getPerson(i));
+        }
+
     }
     
     private void addToRegister() {
@@ -95,19 +98,36 @@ public class ConsoleUI {
     
     //TODO: Implement the method updateRegister
     private void updateRegister() {
-        throw new UnsupportedOperationException("Method updateRegister not yet implemented");
+        System.out.println("Enter index: ");
+        int index = Integer.parseInt(readLine());
+        System.out.println("Enter Name: ");
+        String name = readLine();
+        System.out.println("Enter Phone Number: ");
+        String phoneNumber = readLine();
+
+        register.updatePerson(new Person(name, phoneNumber), index-1);
     }
     
     //TODO: Implement the method findInRegister
     private void findInRegister() {
-        throw new UnsupportedOperationException("Method findInRegister not yet implemented");
+        System.out.println("Zadaj telefonne cislo");
+        String phoneNumber = readLine();
+        Person personX = register.findPersonByPhoneNumber(phoneNumber);
+        if (personX==null){
+            System.out.println("Dane cislo nenajdene");
+
+        } else {
+            System.out.println(personX);
+        }
+
+
     }
     
     private void removeFromRegister() {
         System.out.println("Enter index: ");
         int index = Integer.parseInt(readLine());
         Person person = register.getPerson(index - 1);
-        register.removePerson(person);
+        register.removePerson(index-1);
     }
 
 }
